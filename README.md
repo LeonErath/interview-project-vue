@@ -1,3 +1,7 @@
-![](https://github.com/LeonErath/interview-project-vue/blob/master/.github/workflows/blank.yml/badge.svg)
-
 This is my interview repository.
+
+
+To start local development use the following command:
+```
+docker-compose up --build
+```

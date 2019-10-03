@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  frontend:
+    image: node:10.15.1
+    command: npm run dev
+    volumes:
+      - ./frontend:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - "3000:3000"
+    environment:
+      HOST: 0.0.0.0
+
+  server:
+    image: node:10.15.1
+    command: npm run dev
+    volumes:
+      - ./backend:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - "4000:4000"
+    environment:
+      PORT: 4000
