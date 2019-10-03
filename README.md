@@ -158,8 +158,8 @@ Project Link: [https://github.com/LeonErath/interview-project-vue](https://githu
 
 
 
-[issues-shield]: https://img.shields.io/github/issues/LeonErath/interview-project-vue.svg?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/LeonErath/interview-project-vue?style=flat-square
 [issues-url]: https://github.com/LeonErath/interview-project-vue/issues
-[license-shield]: https://img.shields.io/github/license/LeonErath/interview-project-vue.svg?style=flat-square
+[license-shield]: https://img.shields.io/github/license/LeonErath/interview-project-vue?style=flat-square
 [license-url]: https://github.com/LeonErath/interview-project-vue/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png
