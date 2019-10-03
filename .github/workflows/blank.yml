@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install Dependencies
-      run: npm install frontend/
+      run: cd frontend/ && npm install
     - name: Build Application
-      run: npm run build --prefix frontend/
+      run: cd frontend/ && npm run build
