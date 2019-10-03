@@ -5,7 +5,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/LeonErath/interview-project-vue">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/vue.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Vue Interview Project</h3>
@@ -47,7 +47,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+ <img src="images/screenshot.png" alt="Screenshot">
 
 
 ### Built With
