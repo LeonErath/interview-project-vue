@@ -9,9 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Goto frontend
-      run: cd frontend/
     - name: Install Dependencies
-      run: npm install
+      run: npm install frontend/
     - name: Build Application
-      run: npm run build
+      run: npm run build frontend/
