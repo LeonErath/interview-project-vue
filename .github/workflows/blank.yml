@@ -9,7 +9,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
+    - name: Goto frontend
+      run: cd frontend/
+    - name: Install Dependencies
       run: npm install
-    - name: Run a multi-line script
+    - name: Build Application
       run: npm run build
