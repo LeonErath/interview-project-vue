@@ -60,16 +60,7 @@ npm install
 ### Development
  
 There are two ways of setting up a local development enviroment:
-1. npm
-```sh
-cd frontend/
-npm run dev
-```
-```sh
-cd backend/
-npm run dev
-```
-2. docker-compose
+1. docker-compose
 ```sh
 docker-compose up --build
 ```
