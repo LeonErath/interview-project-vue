@@ -1,13 +1,38 @@
 <template>
   <div>
-    <nuxt />
+
+    <div class="container">
+      <Sidebar />
+      <nuxt />
+    </div>
+
+    <Footer />
   </div>
 </template>
 
+<script>
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+
+export default {
+  components: {
+    Header,
+    Footer,
+    Sidebar
+  }
+};
+</script>
+
 <style>
+.container{
+  display:flex;
+  flex-direction: row;
+}
+
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
