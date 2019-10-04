@@ -1,26 +1,13 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">Welcome</h1>
-      <h2 class="subtitle">My kickass interview project</h2>
-      <div class="links">
-        <nuxt-link to="/roles" class="button--green">Roles</nuxt-link>
-        <nuxt-link to="/accounts" class="button--grey">Accounts</nuxt-link>
-      </div>
+      <h1 class="title">Roles</h1>
+      <h2 class="subtitle">Here you can manage all roles</h2>
     </div>
   </div>
 </template>
 
-<script>
-import Logo from "~/components/Logo.vue";
 
-export default {
-  components: {
-    Logo
-  }
-};
-</script>
 
 <style scoped>
 .container {

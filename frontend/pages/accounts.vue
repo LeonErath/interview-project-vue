@@ -8,32 +8,19 @@
       <input type="text" v-model="search" class="input" placeholder="serach"/>
        <span class="button--green" v-on:click="create">Create</span>
       </div>
-      <div class="accounts">
-        <div class="account">
-          <span class="cell header">Firstname</span>
-          <span class="cell header">Lastname</span>
-          <span class="cell header">E-mail</span>
-          <span class="cell header">Telephone</span>
-          <span class="cell header">Action</span>
-        </div>
 
-        <div v-for="account in filterAccounts" v-bind:key="account" class="account">
-          <span class="cell">{{ account.firstname }}</span>
-          <span class="cell">{{ account.lastname }}</span>
-          <span class="cell">{{ account.email }}</span>
-          <span class="cell">{{ account.telephone }}</span>
-          <div class="cell">
-            <span>edit</span>
-            <span>delete</span>
-          </div>
-        </div>
-      </div>
+       <AccountTable v-bind:accounts="filterAccounts"/>
     </div>
   </div>
 </template>
 
 <script>
+import AccountTable from "../components/AccountTable"
+
 export default {
+  components:{
+    AccountTable
+  },
   data() {
     return {
       search: "",
@@ -83,7 +70,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 .cell {
   box-sizing: border-box;
