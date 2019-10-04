@@ -6,15 +6,19 @@
       <div
         class="subtitle"
       >This created account will have access to this platform.</div>
-
-      <button @click.prevent="close" class="button--grey">Close</button>
+      <AccountForm v-on:input="close"></AccountForm>
     </div>
   </div>
 </template>
 
 <script>
+import AccountForm from "./AccountForm"
+
 export default {
   name: "AccountModal",
+  components:{
+    AccountForm
+  },
   props: {
     value: {
       required: true
@@ -30,11 +34,11 @@ export default {
 
 <style scoped>
 .container {
+  line-height: 1.2;
   padding: 16px;
   border-radius: 4px;
   background: white;
   width: 600px;
-  height: 600px;
   display: flex;
   flex-direction: column;
 }

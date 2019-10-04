@@ -64,9 +64,6 @@ export default {
     };
   },
   methods: {
-    create: function(event) {
-      alert("Hello " + this.name + "!");
-    },
     openModal() {
       this.modalOpen = !this.modalOpen;
     }
@@ -86,6 +83,7 @@ export default {
 
 <style scoped>
 .header {
+  line-height: 1.2;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
