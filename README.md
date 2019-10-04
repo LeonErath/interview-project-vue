@@ -12,36 +12,8 @@
 
   <p align="center">
     Development of a „User Management“ REST service with underlying data model and a simple VueJS-Frontend
-    <br />
-    <a href="https://github.com/LeonErath/interview-project-vue"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/LeonErath/interview-project-vue">View Demo</a>
-    ·
-    <a href="https://github.com/LeonErath/interview-project-vue/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/LeonErath/interview-project-vue/issues">Request Feature</a>
   </p>
 </p>
-
-
-
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-- [Table of Contents](#table-of-contents)
-- [About The Project](#about-the-project)
-  - [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Development](#development)
-- [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -65,17 +37,8 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
-```sh
-npm install npm@latest -g
-```
-
-OR
 * docker-compose
-```sh
-brew install docker
-```
 
 ### Installation
  
@@ -97,16 +60,7 @@ npm install
 ### Development
  
 There are two ways of setting up a local development enviroment:
-1. npm
-```sh
-cd frontend/
-npm run dev
-```
-```sh
-cd backend/
-npm run dev
-```
-2. docker-compose
+1. docker-compose
 ```sh
 docker-compose up --build
 ```
