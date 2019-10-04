@@ -5,8 +5,9 @@
     <span class="cell">{{ account.email }}</span>
     <span class="cell">{{ account.telephone }}</span>
     <div class="cell">
-      <span>edit</span>
-      <span>delete</span>
+      <div class="image"> <img src="/icons8-edit.svg" alt="edit" width="20"></div>
+        <div class="image">  <img src="/icons8-trash.svg" alt="edit" width="20"></div>
+
     </div>
   </div>
 </template>
@@ -20,16 +21,26 @@ export default {
 
 <style scoped>
 .cell {
-  box-sizing: border-box;
-  display: inline-block;
+  border-color: #eeeeee;
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
   flex-grow: 1;
   width: 100%;
   text-align: left;
   overflow: hidden;
   list-style: none;
-  margin: 4px;
+  margin: 0px;
+  padding: 8px;
+  color: #222222;
+}
+.image{
   padding: 4px;
-  background: rgb(249, 249, 255);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.image:hover{
+  background: rgb(247, 247, 247)
 }
 .search-container {
   display: flex;
