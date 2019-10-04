@@ -17,9 +17,12 @@ getAccount = id =>
 
 deleteAccount = id => Account.deleteOne({ _id: id }).exec();
 
+deleteAll = () => Account.deleteMany({}).exec();
+
 updateAccount = (id, account) => Account.updateOne({ _id: id }, account).exec();
 
 module.exports = {
+	deleteAll,
 	insertAccount,
 	getAll,
 	getAccount,

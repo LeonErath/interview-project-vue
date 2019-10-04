@@ -3,7 +3,7 @@ let mongoose = require("mongoose");
 let database = null;
 
 async function startDatabase() {
-	let mongoDB = `mongodb://localhost:27017/vue_interview`;
+	let mongoDB = `mongodb://mongodb/vue_interview`;
 	mongoose.connect(mongoDB, { useNewUrlParser: true });
 	database = mongoose.connection;
 	database.on(

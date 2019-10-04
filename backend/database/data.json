@@ -1,0 +1,74 @@
+{
+    "accounts":[
+        {
+            "firstname":"Leon",
+            "lastname":"Erath",
+            "email":"leon-erath@hotmail.de",
+            "telephone":"12093i910239",
+            "roles":[
+                {
+                    "name":"admin",
+                    "rights":[
+                        {
+                            "name":"Internet Access"
+                        },
+                        {
+                            "name":"Email Access"
+                        }
+                    ]
+                },
+                {
+                    "name":"intern",
+                    "rights":[
+                        {
+                            "name":"Email Access"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "firstname":"Daniel",
+            "lastname":"Salomon",
+            "email":"daniel-salomon@hotmail.de",
+            "telephone":"203i1923123",
+            "roles":[
+                {
+                    "name":"student",
+                    "rights":[
+                        {
+                            "name":"Internet Access"
+                        },
+                        {
+                            "name":"Email Access"
+                        },
+                        {
+                            "name":"File Access"
+                        }
+                    ]
+                }
+               
+            ]
+        },
+        {
+            "firstname":"Max",
+            "lastname":"Musterman",
+            "email":"max-musterman@hotmail.de",
+            "telephone":"203i112312923123",
+            "roles":[]
+        }
+        ,
+        {
+            "firstname":"Simon",
+            "lastname":"Mayer",
+            "email":"simon-mayer@hotmail.de",
+            "telephone":"1234",
+            "roles":[
+                {
+                    "name":"employee",
+                    "rights":[]
+                }
+            ]
+        }
+    ]
+}

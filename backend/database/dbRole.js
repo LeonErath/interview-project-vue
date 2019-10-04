@@ -14,9 +14,12 @@ getRole = id =>
 
 deleteRole = id => Role.deleteOne({ _id: id }).exec();
 
+deleteAll = () => Role.deleteMany({}).exec();
+
 updateRole = (id, role) => Role.updateOne({ _id: id }, role).exec();
 
 module.exports = {
+	deleteAll,
 	insertRole,
 	getAll,
 	getRole,
