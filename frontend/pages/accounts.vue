@@ -1,28 +1,39 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">Accounts</h1>
-      <h2 class="subtitle">Here you can manage all accounts</h2>
-
-      <div class="search-container">
-      <input type="text" v-model="search" class="input" placeholder="serach"/>
-       <span class="button--green" v-on:click="create">Create</span>
+    <AccountModal v-model="modalOpen"></AccountModal>
+    <div class="header">
+      <div>
+        <h1 class="title">Accounts</h1>
+        <h2 class="subtitle">Here you can manage all accounts</h2>
       </div>
+      <div>
+        <span class="button--grey" v-on:click="openModal">Create Account</span>
+      </div>
+    </div>
 
-       <AccountTable v-bind:accounts="filterAccounts"/>
+    <div>
+      <div class="table-container">
+        <div class="search-container">
+          <input type="text" v-model="search" class="input" placeholder="serach" />
+        </div>
+        <AccountTable v-bind:accounts="filterAccounts" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import AccountTable from "../components/AccountTable"
+import AccountTable from "../components/AccountTable";
+import AccountModal from "../components/AccountModal";
 
 export default {
-  components:{
-    AccountTable
+  components: {
+    AccountTable,
+    AccountModal
   },
   data() {
     return {
+      modalOpen: false,
       search: "",
       accounts: [
         {
@@ -55,6 +66,9 @@ export default {
   methods: {
     create: function(event) {
       alert("Hello " + this.name + "!");
+    },
+    openModal() {
+      this.modalOpen = !this.modalOpen;
     }
   },
   computed: {
@@ -71,72 +85,59 @@ export default {
 </script>
 
 <style scoped>
-
-.cell {
-  box-sizing: border-box;
-  display: inline-block;
-  flex-grow: 1;
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 4px 16px 4px 16px;
+  border-bottom: 1px solid rgb(230, 230, 230);
   width: 100%;
-  text-align: left;
-  overflow: hidden;
-  list-style: none;
-  margin: 4px;
-  padding: 4px;
-  background: rgb(249, 249, 255);
 }
-.search-container{
+
+.header div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-container {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
 }
-.input{
+.input {
   width: 200px;
   padding: 8px 8px;
   margin: 8px 0;
   box-sizing: border-box;
 }
-.cell.header {
-  background: transparent;
-  font-weight: bold;
-  color: #35495e;
-  font-size: 16px;
-}
-.account {
-  width: 1000px;
-  display: flex;
-  flex-direction: row;
-}
-.accounts {
-  display: flex;
-  flex-direction: column;
-  margin: 32px 0 3em 0;
-  padding: 0;
+
+.table-container {
+  margin: 32px;
 }
 .container {
-  margin: 0 auto;
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex-direction: column;
+  text-align: left;
 }
 
 .title {
   font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
-  font-weight: 300;
-  font-size: 100px;
+  font-weight: bold;
+  font-size: 30px;
   color: #35495e;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: 42px;
+  font-size: 18px;
   color: #526488;
-  word-spacing: 5px;
   padding-bottom: 15px;
 }
 
