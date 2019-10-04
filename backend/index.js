@@ -26,6 +26,8 @@ router.get("/", (req, res) => {
 });
 
 require("./routes/accountRoute.js")(router);
+require("./routes/roleRoute.js")(router);
+require("./routes/rightRoute.js")(router);
 
 app.use("/api", router);
 
