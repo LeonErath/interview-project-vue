@@ -1,13 +1,25 @@
 <template>
   <div class="account">
+    <md-dialog-confirm
+      :md-active.sync="confirmation"
+      md-title="Do you want to delete the account?"
+      md-content
+      md-confirm-text="Delete"
+      md-cancel-text="Cancel"
+      @md-cancel="confirmation=false"
+      @md-confirm="onConfirm"
+    />
     <span class="cell">{{ account.firstname }}</span>
     <span class="cell">{{ account.lastname }}</span>
     <span class="cell">{{ account.email }}</span>
     <span class="cell">{{ account.telephone }}</span>
     <div class="cell">
-      <div class="image"> <img src="/icons8-edit.svg" alt="edit" width="20"></div>
-        <div class="image">  <img src="/icons8-trash.svg" alt="edit" width="20"></div>
-
+      <div class="image">
+        <img src="/icons8-edit.svg" alt="edit" width="20" />
+      </div>
+      <div class="image" v-on:click="confirmation=true">
+        <img src="/icons8-trash.svg" alt="edit" width="20" />
+      </div>
     </div>
   </div>
 </template>
@@ -15,7 +27,17 @@
 <script>
 export default {
   name: "AccountItem",
-  props: ["account"]
+  props: ["account"],
+  data() {
+    return {
+      confirmation: false
+    };
+  },
+  methods: {
+    onConfirm() {
+      this.$emit("delete");
+    }
+  }
 };
 </script>
 
@@ -34,13 +56,13 @@ export default {
   padding: 8px;
   color: #222222;
 }
-.image{
+.image {
   padding: 4px;
   border-radius: 4px;
   cursor: pointer;
 }
-.image:hover{
-  background: rgb(247, 247, 247)
+.image:hover {
+  background: rgb(231, 231, 231);
 }
 .search-container {
   display: flex;

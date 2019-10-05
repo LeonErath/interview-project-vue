@@ -3,20 +3,18 @@
   <div class="modal" v-show="value">
     <div class="container">
       <div class="title">Create an Account</div>
-      <div
-        class="subtitle"
-      >This created account will have access to this platform.</div>
+      <div class="subtitle">This created account will have access to this platform.</div>
       <AccountForm v-on:input="close"></AccountForm>
     </div>
   </div>
 </template>
 
 <script>
-import AccountForm from "./AccountForm"
+import AccountForm from "./AccountForm";
 
 export default {
   name: "AccountModal",
-  components:{
+  components: {
     AccountForm
   },
   props: {
@@ -27,6 +25,7 @@ export default {
   methods: {
     close() {
       this.$emit("input", !this.value);
+      this.$emit("update");
     }
   }
 };

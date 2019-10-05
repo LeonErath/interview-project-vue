@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <AccountModal v-model="modalOpen"></AccountModal>
+
+    <AccountModal v-model="modalOpen" @update="updateData"></AccountModal>
     <div class="header">
       <div>
         <h1 class="title">Accounts</h1>
@@ -16,13 +17,14 @@
         <div class="search-container">
           <input type="text" v-model="search" class="input" placeholder="serach" />
         </div>
-        <AccountTable v-bind:accounts="filterAccounts" />
+        <AccountTable v-bind:accounts="filterAccounts" @delete="deleteAccount" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import AccountTable from "../components/AccountTable";
 import AccountModal from "../components/AccountModal";
 
@@ -33,37 +35,28 @@ export default {
   },
   data() {
     return {
+
       modalOpen: false,
       search: "",
-      accounts: [
-        {
-          firstname: "Leon",
-          lastname: "Erath",
-          email: "leon-erath@hotmail.de",
-          telephone: "+49 176 8121 5974"
-        },
-        {
-          firstname: "Daniel",
-          lastname: "Sal",
-          email: "daniel@hotmail.de",
-          telephone: "+49 123 5123 5974"
-        },
-        {
-          firstname: "Daniel",
-          lastname: "Sal",
-          email: "daniel@hotmail.de",
-          telephone: "+49 123 5123 5974"
-        },
-        {
-          firstname: "Daniel",
-          lastname: "Sal",
-          email: "daniel@hotmail.de",
-          telephone: "+49 123 5123 5974"
-        }
-      ]
+      accounts: []
     };
   },
   methods: {
+
+    deleteAccount(account) {
+      axios
+        .delete("http://localhost:3005/api/accounts/" + account._id)
+        .then(res => {
+          this.updateData();
+        })
+        .catch(err => console.log(err));
+    },
+    updateData() {
+      axios
+        .get("http://localhost:3005/api/accounts")
+        .then(res => (this.accounts = res.data))
+        .catch(err => console.log(err));
+    },
     openModal() {
       this.modalOpen = !this.modalOpen;
     }
@@ -77,6 +70,12 @@ export default {
         );
       });
     }
+  },
+  created() {
+    axios
+      .get("http://localhost:3005/api/accounts")
+      .then(res => (this.accounts = res.data))
+      .catch(err => console.log(err));
   }
 };
 </script>

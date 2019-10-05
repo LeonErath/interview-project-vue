@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import { validationMixin } from "vuelidate";
 import {
   required,
@@ -97,7 +98,6 @@ export default {
   name: "FormValidation",
   mixins: [validationMixin],
   data: () => ({
-
     form: {
       roles: [],
       firstName: null,
@@ -152,13 +152,25 @@ export default {
     saveUser() {
       this.sending = true;
 
-      // Instead of this timeout, here you can call your API
-      window.setTimeout(() => {
-        this.lastUser = `${this.form.firstName} ${this.form.lastName}`;
-        this.userSaved = true;
-        this.sending = false;
-        this.clearForm();
-      }, 1500);
+      axios
+        .post("http://localhost:3005/api/accounts", {
+          firstname: this.form.firstName,
+          lastname: this.form.lastName,
+          telephone: this.form.telephone,
+          email: this.form.email
+        })
+        .then(response => {
+          console.log(response);
+          this.userSaved = true;
+          this.sending = false;
+          this.clearForm();
+          this.$emit("input", !this.value);
+        })
+        .catch(error => {
+          console.log(error);
+          this.sending = false;
+          this.clearForm();
+        });
     },
     validateUser() {
       this.$v.$touch();
