@@ -19,7 +19,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
- <img src="images/screenshot.png" alt="Screenshot">
+ <img src="images/screenshot2.png" alt="Screenshot">
 
 
 ### Built With
