@@ -1,20 +1,18 @@
 <template>
-  <div class="account">
+  <div class="role">
     <md-dialog-confirm
       :md-active.sync="confirmation"
-      md-title="Do you want to delete the account?"
-      md-content
+      md-title=""
+      md-content="Do you want to delete the role?"
       md-confirm-text="Delete"
       md-cancel-text="Cancel"
       @md-cancel="confirmation=false"
       @md-confirm="onConfirm"
     />
-    <span class="cell">{{ account.firstname }}</span>
-    <span class="cell">{{ account.lastname }}</span>
-    <span class="cell">{{ account.email }}</span>
-    <span class="cell">{{ account.telephone }}</span>
+    <span class="cell">{{ role._id }}</span>
+    <span class="cell">{{ role.name }}</span>
     <div class="cell">
-      <div class="image">
+      <div class="image" v-on:click="$emit('edit')">
         <img src="/icons8-edit.svg" alt="edit" width="20" />
       </div>
       <div class="image" v-on:click="confirmation=true">
@@ -26,8 +24,8 @@
 
 <script>
 export default {
-  name: "AccountItem",
-  props: ["account"],
+  name: "RoleItem",
+  props: ["role"],
   data() {
     return {
       confirmation: false
@@ -47,6 +45,7 @@ export default {
   border-style: solid;
   border-width: 1px;
   display: flex;
+  align-items: center;
   flex-grow: 1;
   width: 100%;
   text-align: left;
@@ -82,12 +81,12 @@ export default {
   color: #35495e;
   font-size: 16px;
 }
-.account {
+.role {
   width: 1000px;
   display: flex;
   flex-direction: row;
 }
-.accounts {
+.roles {
   display: flex;
   flex-direction: column;
   margin: 32px 0 3em 0;

@@ -10,6 +10,9 @@
       <nuxt-link to="/roles" class="link">
         <img src="/icons8-lock-white.svg" alt="roles" width="40" class="icons" />
       </nuxt-link>
+        <nuxt-link to="/rights" class="link">
+        <img src="/icons8-key.svg" alt="roles" width="40" class="icons" />
+      </nuxt-link>
     </div>
   </div>
 </template>

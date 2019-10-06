@@ -1,18 +1,13 @@
 <template>
   <div class="container">
-    <AccountModal
-      v-model="modalOpen"
-      @update="updateData"
-      v-bind:edit="edit"
-      v-bind:account="account"
-    ></AccountModal>
+    <RightModal v-model="modalOpen" @update="updateData" v-bind:edit="edit" v-bind:right="right"></RightModal>
     <div class="header">
       <div>
-        <h1 class="title">Accounts</h1>
-        <h2 class="subtitle">Here you can manage all accounts</h2>
+        <h1 class="title">Rights</h1>
+        <h2 class="subtitle">Here you can manage all rights</h2>
       </div>
       <div>
-        <span class="button--grey" v-on:click="openModal">Create Account</span>
+        <span class="button--grey" v-on:click="openModal">Create Right</span>
       </div>
     </div>
 
@@ -21,7 +16,7 @@
         <div class="search-container">
           <input type="text" v-model="search" class="input" placeholder="serach" />
         </div>
-        <AccountTable v-bind:accounts="filterAccounts" @delete="deleteAccount" @edit="editAccount" />
+        <RightTable v-bind:rights="filterRights" @delete="deleteRight" @edit="editRight" />
       </div>
     </div>
   </div>
@@ -29,79 +24,67 @@
 
 <script>
 import axios from "axios";
-import AccountTable from "../components/account/AccountTable";
-import AccountModal from "../components/account/AccountModal";
+import RightTable from "../components/right/RightTable";
+import RightModal from "../components/right/RightModal";
 
 export default {
-  name: "accounts",
+  name: "rights",
   components: {
-    AccountTable,
-    AccountModal
+    RightTable,
+    RightModal
   },
   data() {
     return {
       modalOpen: false,
       search: "",
-      accounts: [],
+      rights: [],
       edit: false,
-      account: {
-        roles: [],
-        _id:null,
-        lastname: null,
-        firstname: null,
-        email: null,
-        telephone: null
+      right: {
+        _id: null,
+        name: null
       }
     };
   },
   methods: {
-    editAccount(account) {
+    editRight(right) {
       this.edit = true;
-      this.$set(this.account, "firstname", account.firstname);
-      this.account._id = account._id;
-      this.account.email = account.email;
-      this.account.lastname = account.lastname;
-      this.account.telephone = account.telephone;
-      this.account.roles = account.roles.map(role => role._id);
+      this.right.name = right.name;
+      this.right._id = right._id;
+
       this.$nextTick(function() {
         this.modalOpen = true;
-
       });
     },
-    deleteAccount(account) {
+    deleteRight(right) {
       axios
-        .delete("http://localhost:3005/api/accounts/" + account._id)
+        .delete("http://localhost:3005/api/rights/" + right._id)
         .then(res => {
           this.updateData();
         })
         .catch(err => console.log(err));
     },
     updateData() {
-
       axios
-        .get("http://localhost:3005/api/accounts")
-        .then(res => (this.accounts = res.data))
+        .get("http://localhost:3005/api/rights")
+        .then(res => (this.rights = res.data))
         .catch(err => console.log(err));
     },
     openModal() {
-       this.edit = false;
+      this.edit = false;
       this.modalOpen = !this.modalOpen;
     }
   },
   computed: {
-    filterAccounts() {
-      return this.accounts.filter(account => {
-        return (
-          account.firstname.toLowerCase().indexOf(this.search.toLowerCase()) >
-          -1
-        );
+    filterRights() {
+      return this.rights.filter(right => {
+        return right.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
       });
     }
   },
   created() {
     axios
-      .get("http://localhost:3005/api/accounts")
-      .then(res => (this.accounts = res.data))
+      .get("http://localhost:3005/api/rights")
+      .then(res => (this.rights = res.data))
       .catch(err => console.log(err));
   }
 };
