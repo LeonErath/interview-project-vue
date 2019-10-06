@@ -13,11 +13,14 @@
     <span class="cell">{{ account.lastname }}</span>
     <span class="cell">{{ account.email }}</span>
     <span class="cell">{{ account.telephone }}</span>
+    <span class="cell">{{ account.roles.map(role => role.name).join(", ") }}</span>
     <div class="cell">
       <div class="image" v-on:click="$emit('edit')">
         <img src="/icons8-edit.svg" alt="edit" width="20" />
+          <md-tooltip md-direction="top">Edit</md-tooltip>
       </div>
       <div class="image" v-on:click="confirmation=true">
+          <md-tooltip md-direction="top">Delete</md-tooltip>
         <img src="/icons8-trash.svg" alt="edit" width="20" />
       </div>
     </div>

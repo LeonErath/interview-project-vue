@@ -5,6 +5,7 @@
         <div class="role">
           <span class="cell header">ID</span>
           <span class="cell header">Name</span>
+          <nuxt-link to="/rights" class="cell header">Rights</nuxt-link>
           <span class="cell header">Action</span>
         </div>
 

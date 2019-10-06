@@ -7,11 +7,16 @@
           <span class="cell header">Lastname</span>
           <span class="cell header">E-mail</span>
           <span class="cell header">Telephone</span>
+          <nuxt-link to="/roles" class="cell header">Roles</nuxt-link>
           <span class="cell header">Action</span>
         </div>
 
         <div v-for="account in accounts" v-bind:key="account" class="account">
-          <AccountItem v-bind:account="account" @delete="$emit('delete', account)" @edit="$emit('edit', account)"/>
+          <AccountItem
+            v-bind:account="account"
+            @delete="$emit('delete', account)"
+            @edit="$emit('edit', account)"
+          />
         </div>
       </div>
     </div>
@@ -62,7 +67,7 @@ export default {
   font-size: 16px;
 }
 .account {
-  width: 1000px;
+  width: 1400px;
   display: flex;
   flex-direction: row;
 }

@@ -11,11 +11,14 @@
     />
     <span class="cell">{{ right._id }}</span>
     <span class="cell">{{ right.name }}</span>
+
     <div class="cell">
       <div class="image" v-on:click="$emit('edit')">
+          <md-tooltip md-direction="top">Edit</md-tooltip>
         <img src="/icons8-edit.svg" alt="edit" width="20" />
       </div>
       <div class="image" v-on:click="confirmation=true">
+          <md-tooltip md-direction="top">Delete</md-tooltip>
         <img src="/icons8-trash.svg" alt="edit" width="20" />
       </div>
     </div>

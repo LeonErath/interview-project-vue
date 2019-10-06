@@ -11,12 +11,15 @@
     />
     <span class="cell">{{ role._id }}</span>
     <span class="cell">{{ role.name }}</span>
+    <span class="cell">{{  role.rights.map(right => right.name).join(", ")}}</span>
     <div class="cell">
       <div class="image" v-on:click="$emit('edit')">
         <img src="/icons8-edit.svg" alt="edit" width="20" />
+          <md-tooltip md-direction="top">Edit</md-tooltip>
       </div>
       <div class="image" v-on:click="confirmation=true">
         <img src="/icons8-trash.svg" alt="edit" width="20" />
+          <md-tooltip md-direction="top">Delete</md-tooltip>
       </div>
     </div>
   </div>
