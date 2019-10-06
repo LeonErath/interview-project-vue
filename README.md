@@ -65,6 +65,13 @@ To setup the local development enviroment follow these steps:
 docker-compose up --build
 ```
 
+The web application will then be available under [http://localhost:3000/](http://localhost:3000/).  
+The REST API will be avaible on [http://localhost:3005/api/](http://localhost:3005/api/)
+
+### Documentation
+
+The documentation for the REST API can be found here: [REST API Documentation](https://documenter.getpostman.com/view/368567/SVtR3r1c?version=latest)
+
 
 <!-- LICENSE -->
 ## License
