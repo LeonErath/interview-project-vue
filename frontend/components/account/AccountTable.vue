@@ -11,7 +11,7 @@
         </div>
 
         <div v-for="account in accounts" v-bind:key="account" class="account">
-          <AccountItem v-bind:account="account" />
+          <AccountItem v-bind:account="account" @delete="$emit('delete', account)" @edit="$emit('edit', account)"/>
         </div>
       </div>
     </div>

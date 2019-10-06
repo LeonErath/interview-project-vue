@@ -2,24 +2,24 @@
 <template>
   <div class="modal" v-show="value">
     <div class="container">
-      <div class="title">Create an Account</div>
-      <div
-        class="subtitle"
-      >This created account will have access to this platform.</div>
-      <AccountForm v-on:input="close"></AccountForm>
+      <div class="title">Create an Role</div>
+      <div class="subtitle">This created account will have access to this platform.</div>
+      <RoleForm v-on:input="close" v-bind:edit="edit" v-bind:role="role"></RoleForm>
     </div>
   </div>
 </template>
 
 <script>
-import AccountForm from "./AccountForm"
+import RoleForm from "./RoleForm";
 
 export default {
-  name: "AccountModal",
-  components:{
-    AccountForm
+  name: "RoleModal",
+  components: {
+    RoleForm
   },
   props: {
+    edit:Boolean,
+    role: Object,
     value: {
       required: true
     }
@@ -27,7 +27,11 @@ export default {
   methods: {
     close() {
       this.$emit("input", !this.value);
+      this.$emit("update");
     }
+  },
+  mounted(){
+
   }
 };
 </script>

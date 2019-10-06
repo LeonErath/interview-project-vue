@@ -45,6 +45,7 @@ html {
 *,
 *:before,
 *:after {
+  line-height: 1.2;
   box-sizing: border-box;
   margin: 0;
 }
@@ -53,14 +54,14 @@ html {
   display: inline-block;
   border-radius: 4px;
   border: 1px solid #3b8070;
-  color: #3b8070;
+  color: #3b8070 !important;
   text-decoration: none;
   padding: 10px 30px;
   cursor: pointer;
 }
 
 .button--green:hover {
-  color: #fff;
+  color: #fff !important;
   background-color: #3b8070;
 }
 
@@ -68,7 +69,7 @@ html {
   display: inline-block;
   border-radius: 4px;
   border: 1px solid #35495e;
-  color: #35495e;
+  color: #35495e !important;
   text-decoration: none;
   padding: 10px 30px;
   margin-left: 15px;
@@ -76,7 +77,7 @@ html {
 }
 
 .button--grey:hover {
-  color: #fff;
+  color: #fff !important;
   background-color: #35495e;
 }
 </style>
