@@ -44,7 +44,7 @@ To get a local copy up and running follow these simple steps.
  
 1. Clone the repo
 ```sh
-git clone https:://github.com/LeonErath/repo.git
+git clone https://github.com/LeonErath/interview-project-vue.git
 ```
 2. Install NPM packages of the frontend
 ```sh
