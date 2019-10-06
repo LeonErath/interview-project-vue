@@ -66,7 +66,7 @@ docker-compose up --build
 ```
 
 The web application will then be available under [http://localhost:3000/](http://localhost:3000/).  
-The REST API will be avaible on [http://localhost:3005/api/](http://localhost:3005/api/)
+The REST API will be available on [http://localhost:3005/api/](http://localhost:3005/api/)
 
 ### Documentation
 
